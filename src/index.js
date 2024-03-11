@@ -6,7 +6,7 @@ import { getCard, removeCard, likeCard } from "./components/card.js";
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__description");
 
-const formElement = document.forms["edit-profile"];
+const profileForm = document.forms["edit-profile"];
 const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_description");
 
@@ -15,7 +15,7 @@ const profileAddBtn = document.querySelector(".profile__add-button");
 
 const popups = document.querySelectorAll(".popup");
 const popupEdit = document.querySelector(".popup_type_edit");
-const popupClose = document.querySelectorAll(".popup__close");
+const closeButtons = document.querySelectorAll(".popup__close");
 
 const popupCard = document.querySelector(".popup_type_new-card");
 const formAddCard = document.forms["new-place"];
@@ -57,21 +57,21 @@ popups.forEach((popup) => {
   });
 });
 
-popupClose.forEach((item) => {
+closeButtons.forEach((item) => {
   const popup = item.closest(".popup");
   item.addEventListener("click", () => {
     closeModal(popup);
   });
 });
 
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileJob.textContent = jobInput.value;
   profileName.textContent = nameInput.value;
   closeModal(popupEdit);
 }
 
-formElement.addEventListener("submit", handleFormSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 function addCard(evt) {
   evt.preventDefault();
