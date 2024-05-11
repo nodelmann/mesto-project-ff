@@ -34,7 +34,6 @@ const popupCaption = document.querySelector(".popup__caption");
 const cardList = document.querySelector(".places__list");
 let profileId = "";
 const popupButton = document.querySelector(".popup__button");
-const popupDelete = document.querySelector(".popup_type_delete_card");
 
 const validationConfig = {
   formSelector: ".popup__form",
