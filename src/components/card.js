@@ -1,4 +1,4 @@
-import { putLike, deleteLike } from "./api.js";
+import { putLike, deleteLike, deleteCard } from "./api.js";
 
 function getCard(item, userId, removeCard, likeCard, openModalImage) {
   const cardTemplate = document.querySelector("#card-template").content;
@@ -66,4 +66,12 @@ function likeCard(item) {
   item.classList.toggle("card__like-button_is-active");
 }
 
-export { getCard, likeCard };
+function removeCard(card, cardId) {
+  deleteCard(cardId)
+    .then(() => {
+      card.remove();
+    })
+    .catch(console.error);
+}
+
+export { getCard, likeCard, removeCard };
